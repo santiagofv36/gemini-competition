@@ -23,7 +23,7 @@ This is a Repo for a competition organized by Google to build an app using Gemin
 4.- Run the app by running the following command in the root of the project:
 
 ```bash
-    gemini-competition$ > pnpm dev
+   pnpm dev
 ```
 
 ## How to install packages in the project
@@ -31,5 +31,5 @@ This is a Repo for a competition organized by Google to build an app using Gemin
 To install a package in the project, you can use the following command:
 
 ```bash
-    gemini-competition$ > pnpm add <package-name> --filter=<name-of-the-app>
+    pnpm add <package-name> --filter=<name-of-the-app>
 ```
