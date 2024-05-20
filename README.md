@@ -17,7 +17,7 @@ This is a Repo for a competition organized by Google to build an app using Gemin
 3.- Install the dependencies by running the following command in the root of the project:
 
 ```bash
-    gemini-competition$ > pnpm install
+   pnpm install
 ```
 
 4.- Run the app by running the following command in the root of the project:
