@@ -1,0 +1,12 @@
+{
+  "name": "gemini-competition",
+  "version": "1.0.0",
+  "description": "This is a Repo for a competition organized by Google to build an app using Gemini as part of the app",
+  "scripts": {
+    "dev": "",
+    "build": ""
+  },
+  "keywords": [],
+  "authors": "Santiago Figueroa, Diógenes Figueroa",
+  "license": "ISC"
+}
