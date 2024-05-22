@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "This is a Repo for a competition organized by Google to build an app using Gemini as part of the app",
   "scripts": {
-    "dev": "pnpm run --parallel dev",
-    "build": "pnpm run --parallel build",
-    "lint": "pnpm run --parallel lint",
-    "start": "pnpm run --parallel start"
+    "dev": "pnpm --filter lib run build && pnpm --parallel dev",
+    "build": "pnpm --parallel build",
+    "lint": "pnpm --filter lib run build && pnpm run --parallel lint",
+    "start": "pnpm --filter lib run build && pnpm run --parallel start"
   },
   "keywords": [],
   "authors": "Santiago Figueroa, Diógenes Figueroa",
