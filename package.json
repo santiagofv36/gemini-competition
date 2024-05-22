@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "pnpm run --parallel dev",
     "build": "pnpm run --parallel build",
-    "lint": "pnpm run --parallel lint"
+    "lint": "pnpm run --parallel lint",
+    "start": "pnpm run --parallel start"
   },
   "keywords": [],
   "authors": "Santiago Figueroa, Diógenes Figueroa",
