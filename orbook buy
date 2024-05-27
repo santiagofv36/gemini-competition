@@ -1,0 +1,116 @@
+[33mcommit a9621525269430e28f03b03ac3ab84882d349b1c[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mdev[m[33m)[m
+Merge: d6d9295 345bbf8
+Author: Santiago Figueroa <59099144+santiagofv36@users.noreply.github.com>
+Date:   Wed May 22 14:31:55 2024 -0400
+
+    Merge pull request #5 from santiagofv36/Swagger-scaffold
+    
+    chore: :construction: Turbo Repo like with pnpm --parallel
+
+[33mcommit 345bbf8a9819dff26e651cf342dca783941008d9[m
+Author: santiagofv36 <59099144+santiagofv36@users.noreply.github.com>
+Date:   Wed May 22 14:30:43 2024 -0400
+
+    chore: :construction: Turbo Repo like with pnpm --parallel
+
+[33mcommit d6d92958efa2389dc45df0c93549ea3f7dda6446[m
+Merge: 3313903 b110236
+Author: Santiago Figueroa <59099144+santiagofv36@users.noreply.github.com>
+Date:   Tue May 21 22:47:41 2024 -0400
+
+    feat(api): :sparkles: Swagger mounted
+    
+    feat(api): :sparkles: Swagger mounted
+
+[33mcommit b110236d5ff2a1ef49bd0a4780e5a0acb2bedf45[m
+Author: santiagofv36 <59099144+santiagofv36@users.noreply.github.com>
+Date:   Tue May 21 22:47:09 2024 -0400
+
+    feat(api): :sparkles: Swagger mounted
+
+[33mcommit 3313903fa62c205b3287eb1642582f5919e4e0c9[m
+Merge: 8cbf60b 282fa05
+Author: Santiago Figueroa <59099144+santiagofv36@users.noreply.github.com>
+Date:   Tue May 21 22:39:26 2024 -0400
+
+    feat(lib): :star2: shared lib
+    
+    Shared Lib
+
+[33mcommit 282fa05ad12ac94d4a07f36e1469c13bb31130e6[m
+Author: santiagofv36 <59099144+santiagofv36@users.noreply.github.com>
+Date:   Tue May 21 22:38:52 2024 -0400
+
+    chore(client): :construction: Package json corrections
+
+[33mcommit 27200ab9d96087a10e1a02d078cb48e0e278f04e[m
+Author: santiagofv36 <59099144+santiagofv36@users.noreply.github.com>
+Date:   Mon May 20 10:54:05 2024 -0400
+
+    feat(lib): :star2 shared lib
+
+[33mcommit 8cbf60be94281af5794c818f8225ddd07d2a18d3[m
+Author: Santiago Figueroa <59099144+santiagofv36@users.noreply.github.com>
+Date:   Mon May 20 10:18:03 2024 -0400
+
+    chore: :construction_worker:  update readme
+
+[33mcommit b50dd41b4db16d492320f09bf7d9f9e55b83d617[m
+Merge: 1be9575 e6b0ca5
+Author: Santiago Figueroa <59099144+santiagofv36@users.noreply.github.com>
+Date:   Mon May 20 10:16:54 2024 -0400
+
+    Merge pull request #2 from santiagofv36/front-setup
+    
+    Front setup
+
+[33mcommit e6b0ca56e29dfded79b8c73c2f8bf264d7da2450[m
+Author: Santiago Figueroa <59099144+santiagofv36@users.noreply.github.com>
+Date:   Mon May 20 10:16:42 2024 -0400
+
+    Update README.md
+
+[33mcommit f3eb835ef636c490a60ea395d5400b5b32e4f650[m
+Author: santiagofv36 <59099144+santiagofv36@users.noreply.github.com>
+Date:   Mon May 20 10:13:08 2024 -0400
+
+    chore: :construction: update readme
+
+[33mcommit c7e2fbe9bef8da0591c88afdc9fa3e12ce152a7c[m
+Author: santiagofv36 <59099144+santiagofv36@users.noreply.github.com>
+Date:   Mon May 20 10:06:32 2024 -0400
+
+    chore: :construction: Mono Repo setup complete
+
+[33mcommit 1be9575938ae1634b2749e22ca571e1941e06d84[m
+Merge: fc73948 9c40a87
+Author: Santiago Figueroa <59099144+santiagofv36@users.noreply.github.com>
+Date:   Mon May 20 09:51:09 2024 -0400
+
+    Merge pull request #1 from santiagofv36/back-setup
+    
+    Back setup
+
+[33mcommit 9c40a871fd67b9865a54e27fcf733c6b6fcd2db1[m
+Author: santiagofv36 <59099144+santiagofv36@users.noreply.github.com>
+Date:   Mon May 20 09:50:08 2024 -0400
+
+    chore: :construction: NestJS Setup complete
+
+[33mcommit e443de7cba132e6acd77d96a0a60c4cc721d9629[m
+Author: santiagofigueroavasquez <santiagofigueroavasquez@gmail.com>
+Date:   Mon May 20 00:16:39 2024 +0000
+
+    chore: :construction: Mono repo setup
+
+[33mcommit fc73948d891804f858148fb804a7a318cdab7c01[m
+Author: santiagofigueroavasquez <santiagofigueroavasquez@gmail.com>
+Date:   Sun May 19 23:56:23 2024 +0000
+
+    chore: :construction: Project IDX Setup
+
+[33mcommit 3868ea801962f6a1c1b21161bb41eb057c36339d[m
+Author: Santiago Figueroa <59099144+santiagofv36@users.noreply.github.com>
+Date:   Sat May 18 17:31:55 2024 -0400
+
+    Initial commit
