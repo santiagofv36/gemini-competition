@@ -12,6 +12,7 @@ async function bootstrap() {
       .setDescription('The api for the Gemini app.')
       .setVersion('1.0.0')
       .addTag('gemini')
+      .addBearerAuth({ type: 'http', scheme: 'bearer', bearerFormat: 'JWT' })
       .build();
     const document = SwaggerModule.createDocument(app, config);
     SwaggerModule.setup('/api', app, document);
