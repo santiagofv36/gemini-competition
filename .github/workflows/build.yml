@@ -1,0 +1,19 @@
+name: Build
+
+on:
+  push:
+    branches: ['main', 'development']
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+    build:
+        name: Test and Build
+        timeout-minutes: 10
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: check npm version
+              run: npm -v
+            - name: check pnpm version
+              run: pnpm -v
