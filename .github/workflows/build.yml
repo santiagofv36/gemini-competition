@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: check npm version
-        run: npm -v
       - name: Install pnpm
         run: npm install -g pnpm
-      - name: check pnpm version
-        run: pnpm -v
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build
+        run: pnpm build
