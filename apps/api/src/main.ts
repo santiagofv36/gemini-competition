@@ -13,7 +13,7 @@ async function bootstrap() {
       .addTag('gemini')
       .build();
     const document = SwaggerModule.createDocument(app, config);
-    SwaggerModule.setup('', app, document);
+    SwaggerModule.setup('/api', app, document);
   }
 
   await app.listen(process.env.PORT || 3000);
