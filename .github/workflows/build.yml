@@ -7,13 +7,15 @@ on:
     types: [opened, synchronize]
 
 jobs:
-    build:
-        name: Test and Build
-        timeout-minutes: 10
-        runs-on: ubuntu-latest
+  build:
+    name: Test and Build
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: check npm version
-              run: npm -v
-            - name: check pnpm version
-              run: pnpm -v
+    steps:
+      - name: check npm version
+        run: npm -v
+      - name: Install pnpm
+        run: npm install -g pnpm
+      - name: check pnpm version
+        run: pnpm -v
