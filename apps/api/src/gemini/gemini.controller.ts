@@ -8,7 +8,7 @@ export class GeminiController {
   constructor(private readonly geminiService: GeminiService) {}
 
   @Post('/run-model')
-  @ApiBody({ type : RunModelDto })
+  @ApiBody({ type: RunModelDto })
   async run(@Body() data: { text: string }) {
     return await this.geminiService.run(data.text);
   }
