@@ -11,7 +11,7 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('signup')
-  @ApiBody({ type: SignUpUserDtos })
+  @ApiBody({ type: SignUpUserDto })
   async signUp(@Body() signupDto: SignUpUserDto): Promise<{ token: string }> {
     return this.authService.signUp(signupDto);
   }
