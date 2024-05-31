@@ -1,4 +1,3 @@
-import NextAuth from 'next-auth/next';
 // import GoogleProvider from 'next-auth/providers/google';
 // import GithubProvider from 'next-auth/providers/github';
 import CredentialsProvider from 'next-auth/providers/credentials';
@@ -79,6 +78,10 @@ export const authOptions: NextAuthOptions = {
     },
   },
   pages: {
-    signIn: "/auth/login",
+    signIn: '/login',
   },
+  session: {
+    strategy: 'jwt',
+  },
+  secret: process.env.NEXTAUTH_SECRET,
 };
