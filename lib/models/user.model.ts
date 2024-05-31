@@ -1,4 +1,4 @@
-export default interface User {
+export interface User {
   id: string;
   name: string;
   email: string;
@@ -10,3 +10,9 @@ export default interface User {
 
 export const Role = ['ADMIN', 'USER', 'GUEST'] as const;
 export type TRoleEnum = (typeof Role)[number];
+
+export interface Tokens {
+  accessToken: string;
+  refreshToken: string;
+  expiresIn: number;
+}
