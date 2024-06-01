@@ -13,7 +13,7 @@ export default function Dashboard() {
     if (!session.data) {
       router.push('/login');
     }
-    setLoading((prev) => !prev);
+    setLoading(false);
   }, [session.data, router]);
 
   const onSignOut = () => {

@@ -119,7 +119,10 @@ export default function SignInForm() {
           <div className="h-[0.5] border border-slate-500 w-full" />
         </div>
         <div className="mt-4 flex justify-center items-center gap-4">
-          <Button className="bg-blue-800 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+          <Button
+            className="bg-blue-800 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+            onClick={() => signIn('google', { callbackUrl: '/dashboard' })}
+          >
             Login with Google
           </Button>
           <Button className="bg-black hover:bg-zinc-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
