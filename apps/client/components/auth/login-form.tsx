@@ -6,7 +6,8 @@ import { useForm } from 'react-hook-form';
 import { Button } from '../ui/button';
 import FormField from '../form/FormField';
 import { FormData } from '../form/FormField';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 export default function SignInForm() {
   const {
@@ -15,12 +16,17 @@ export default function SignInForm() {
     formState: { errors },
   } = useForm<FormData>();
 
+  const router = useRouter();
+  const session = useSession();
+
   const onSumbit = (data: FormData) => {
     signIn('credentials', {
       ...data,
+      redirect: false,
     }).then((callback) => {
       console.log(callback);
       if (callback?.ok) {
+        router.push('/dashboard');
         alert('logged in');
       }
 
@@ -29,6 +35,12 @@ export default function SignInForm() {
       }
     });
   };
+
+  React.useEffect(() => {
+    if (session.status === 'authenticated') {
+      router.push('/dashboard');
+    }
+  }, [session.status]);
 
   return (
     <div className="flex w-full justify-center mt-32">

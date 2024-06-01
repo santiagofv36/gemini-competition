@@ -1,3 +1,13 @@
+'use client';
+import React from 'react';
+import { useRouter } from 'next/navigation';
+
 export default function Home() {
-  return <div>Hello World!</div>;
+  const router = useRouter();
+
+  React.useEffect(() => {
+    router.push('/login');
+  }, [router]);
+
+  return <></>;
 }
