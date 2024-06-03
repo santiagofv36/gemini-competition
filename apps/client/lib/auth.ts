@@ -1,10 +1,8 @@
 import GoogleProvider from 'next-auth/providers/google';
-// import GithubProvider from 'next-auth/providers/github';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { NextAuthOptions } from 'next-auth';
 import { User } from '@shared/index';
 import { axios } from './api';
-import { AxiosError } from 'axios';
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -12,47 +10,28 @@ export const authOptions: NextAuthOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
-    // GithubProvider({
-    //     clientId: process.env.GITHUB_CLIENT_ID,
-    //     clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    // }),
-    CredentialsProvider({
-      name: 'Credentials',
-      credentials: {
-        email: {
-          label: 'Email',
-          type: 'email',
-          placeholder: 'Enter your email',
-        },
-        password: { label: 'Password', type: 'password' },
-      },
-      async authorize(credentials, req) {
-        if (!credentials?.email || !credentials?.password) {
-          return null;
-        }
-        const { email, password } = credentials;
-        const res = await axios.post<User>('/auth/login', {
-          email,
-          password,
-        });
-
-        if (res.status === 401) {
-          return null;
-        }
-
-        return res.data;
-      },
-    }),
   ],
   callbacks: {
-    async jwt({ token, account }) {
-      if (account?.access_token) {
-        token.access_token = account.access_token;
-      }
+    async jwt({ token, user }) {
+      if (user) token.user = user;
       return token;
     },
     async session({ token, session }) {
-      if (token.user) session.user = token.user as any;
+      const { user } = token as any;
+
+      try {
+        const res = await axios.get<User>('/auth/current-user', {
+          headers: {
+            Authorization: `Bearer ${user.bearer_token}`,
+          },
+        });
+
+        session.user = res.data;
+        session.error = '';
+      } catch (e) {
+        session.error = 'Session expired';
+      }
+
       return session;
     },
     async signIn({ user, account }): Promise<any> {
@@ -62,18 +41,6 @@ export const authOptions: NextAuthOptions = {
             email: user.email,
           },
         });
-        /**
-         * @param account{
-          provider: string,
-          type: string,
-          providerAccountId: string,
-          access_token: string,
-          expires_at: number,
-          scope: string,
-          token_type: 'Bearer',
-          id_token: string,
-          }
-         */
 
         if (Number(res?.data?.status) === 400) {
           try {
@@ -81,14 +48,39 @@ export const authOptions: NextAuthOptions = {
               email: user.email,
               name: user.name,
               password: 'Gmail-Automator,%998',
+              google_token: account.access_token,
             });
 
+            const tokenRes = await axios.post<{ token: string }>(
+              '/auth/login',
+              {
+                email: user.email,
+                password: 'Gmail-Automator,%998',
+              }
+            );
+
+            user.google_token = userRes.data.google_token;
+            user.bearer_token = tokenRes.data.token;
+
             return userRes.data;
-          } catch (e) {
-            console.log(e);
+          } catch (e: any) {
+            console.log(e.response.data.message);
             return null;
           }
         }
+
+        await axios.post<User>('/user/assign-google-token', {
+          email: user.email,
+          google_token: account.access_token,
+        });
+
+        const token = await axios.post<{ token: string }>('/auth/login', {
+          email: user.email,
+          password: 'Gmail-Automator,%998',
+        });
+
+        user.bearer_token = token.data.token;
+        user.google_token = res.data.google_token;
 
         return res.data;
       }
