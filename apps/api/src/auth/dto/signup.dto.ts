@@ -13,4 +13,8 @@ export class SignUpUserDto {
   @IsString()
   @MinLength(8, { message: 'Password must be at least 8 characters long' })
   readonly password: string;
+
+  @IsNotEmpty()
+  @IsString()
+  readonly google_token: string;
 }
