@@ -6,15 +6,15 @@ import React from 'react';
 export default function Dashboard() {
   const router = useRouter();
 
-  const session = useSession();
+  const session = useSession(); // TODO: Put in a wrapper to handle loading state
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    if (!session.data) {
+    if (session?.data?.error === 'Session expired') {
       router.push('/login');
     }
-    setLoading((prev) => !prev);
-  }, [session.data, router]);
+    setLoading(false);
+  }, [router, session?.data?.user]);
 
   const onSignOut = () => {
     signOut({
@@ -23,6 +23,8 @@ export default function Dashboard() {
       router.push('/login');
     });
   };
+
+  console.log(session);
 
   if (loading) {
     return <div>Loading...</div>;
