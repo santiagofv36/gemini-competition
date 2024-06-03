@@ -2,6 +2,7 @@ export interface User {
   id: string;
   name: string;
   email: string;
+  google_token: string;
   role: TRoleEnum;
   status: string;
   created_at: string;
