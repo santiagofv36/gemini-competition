@@ -10,11 +10,11 @@ export class UserService {
     private userModel: Model<User>,
   ) {}
 
-  async findOneByEmail(email: string): Promise<User | null> {
+  async findOneByEmail(email: string): Promise<User | BadRequestException> {
     const user = await this.userModel.findOne({ email }).select('-password');
 
     if (!user) {
-      throw new BadRequestException(
+      return new BadRequestException(
         'Invalid credentials, please check with support',
       );
     }
