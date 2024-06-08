@@ -9,8 +9,14 @@ export default function Dashboard() {
   const session = useSession(); // TODO: Put in a wrapper to handle loading state
   const [loading, setLoading] = React.useState(true);
 
+  // console.log(session);
+
   React.useEffect(() => {
-    if (session?.data?.error === 'Session expired') {
+    console.log('SESSION', session);
+    if (
+      session?.data?.error === 'Session expired' ||
+      session?.data === undefined
+    ) {
       router.push('/login');
     }
     setLoading(false);
@@ -23,8 +29,6 @@ export default function Dashboard() {
       router.push('/login');
     });
   };
-
-  console.log(session);
 
   if (loading) {
     return <div>Loading...</div>;
