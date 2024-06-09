@@ -1,4 +1,12 @@
-import { Body, Controller, Request, Get, UseGuards } from '@nestjs/common';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import {
+  Body,
+  Controller,
+  Request,
+  Get,
+  UseGuards,
+  Delete,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { SignUpUserDto } from './dto/signup.dto';
 import { Post } from '@nestjs/common';
@@ -26,6 +34,19 @@ export class AuthController {
   @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   async currentUser(@Request() req: any): Promise<any> {
-    return req.user;
+    const { google_token, ...rest } = req.user;
+    return rest;
+  }
+
+  @Get('/gmail/inbox')
+  @UseGuards(AuthGuard('jwt'))
+  async getGmailInbox(@Request() req: any): Promise<any> {
+    return this.authService.connectToGmail(req.user);
+  }
+
+  @Delete('/logout')
+  @UseGuards(AuthGuard('jwt'))
+  async invalidateToken(@Request() req: any): Promise<any> {
+    return this.authService.invalidateToken(req.user.token);
   }
 }

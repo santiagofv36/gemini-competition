@@ -1,5 +1,4 @@
 import GoogleProvider from 'next-auth/providers/google';
-import CredentialsProvider from 'next-auth/providers/credentials';
 import { NextAuthOptions } from 'next-auth';
 import { User } from '@shared/index';
 import { axios } from './api';
@@ -9,6 +8,12 @@ export const authOptions: NextAuthOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+      authorization: {
+        params: {
+          scope:
+            'openid profile email https://www.googleapis.com/auth/gmail.readonly',
+        },
+      },
     }),
   ],
   callbacks: {
@@ -83,6 +88,20 @@ export const authOptions: NextAuthOptions = {
         user.google_token = res.data.google_token;
 
         return res.data;
+      }
+    },
+  },
+  events: {
+    async signOut({ token }) {
+      const { user } = token as any;
+      try {
+        await axios.delete('/auth/logout', {
+          headers: {
+            Authorization: `Bearer ${user.bearer_token}`,
+          },
+        });
+      } catch (e) {
+        console.log(e);
       }
     },
   },

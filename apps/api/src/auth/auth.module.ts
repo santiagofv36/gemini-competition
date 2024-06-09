@@ -7,6 +7,7 @@ import { UserSchema } from './schemas/user.schema';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtStrategy } from './jwt.statregy';
+import { TokenBlacklistSchema } from './schemas/token.schema';
 
 @Module({
   imports: [
@@ -22,6 +23,9 @@ import { JwtStrategy } from './jwt.statregy';
       imports: [ConfigModule],
     }),
     MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
+    MongooseModule.forFeature([
+      { name: 'TokenBlacklist', schema: TokenBlacklistSchema },
+    ]),
   ],
   controllers: [AuthController],
   providers: [AuthService, JwtStrategy],

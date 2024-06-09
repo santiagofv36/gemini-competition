@@ -13,14 +13,20 @@ This is a Repo for a competition organized by Google to build an app using Gemin
 2. Make sure you have the following dependencies installed:
     - Node.js
     - pnpm & npm
+  
+3.- How to install pnpm via npm
 
-3.- Install the dependencies by running the following command in the root of the project:
+```bash
+   npm install -g pnpm
+```
+
+4.- Install the dependencies by running the following command in the root of the project:
 
 ```bash
    pnpm install
 ```
 
-4.- Run the app by running the following command in the root of the project:
+5.- Run the app by running the following command in the root of the project:
 
 ```bash
    pnpm dev
