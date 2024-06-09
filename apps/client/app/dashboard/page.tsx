@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function Dashboard() {
   return (
-    <main className="flex-1 bg-zinc-100 p-6">
+    <section className='p-6'>
       <header className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-semibold">Analytics</h1>
         <div className="flex items-center space-x-4">
@@ -84,6 +84,6 @@ export default function Dashboard() {
           />
         </div>
       </div>
-    </main>
+    </section>
   );
 }
